@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set_lst.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hugo <hugo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:06:27 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/11 20:25:27 by hugo             ###   ########.fr       */
+/*   Updated: 2023/05/15 16:50:44 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int	*ft_tri_tab(int	*tab, int size)
 
 t_list	*ft_num(t_list *lst)
 {
-	int	i;
+	int		i;
 	t_list	*return_lst;
-	int	*tab;
-	int	size;
+	int		*tab;
+	int		size;
 
 	i = 0;
 	size = ft_lstsize(lst);
@@ -80,8 +80,8 @@ void	ft_display(t_list *lst)
 	ft_printf("\n");
 	while (lst)
 	{
-		ft_printf("%d ", lst->content);
-		ft_printf("[%d] ", lst->partition);
+		ft_printf("\ncontent: %d,", lst->content);
+		ft_printf("partition: %d ", lst->partition);
 		lst = lst->next;
 	}
 	ft_printf("\n");
@@ -110,6 +110,5 @@ t_list	*ft_set_lst(int argc, char **argv)
 		ft_lstadd_back(&lst, temp);
 	}
 	lst = ft_num(lst);
-	// ft_display(lst);
 	return (lst);
 }

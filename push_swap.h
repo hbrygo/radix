@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hugo <hugo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 10:32:43 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/12 12:52:16 by hugo             ###   ########.fr       */
+/*   Updated: 2023/05/15 18:36:04 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ void	ft_display(t_list *lst);
 int		ft_middle2(t_list *lst);
 int		ft_higher(t_list *lst, int previous);
 void	ft_suite(t_list **lst_a, t_list **lst_b);
-void	ft_tri(t_list **lst_a, t_list **lst_b, int next);
+void	ft_tri(t_list **lst_a, t_list **lst_b, int next, int part);
 void	ft_end(t_list **lst_a, t_list **lst_b, int last);
 int		ft_lstsize2(t_list *lst);
 void	ft_suite2(t_list **lst_a, t_list **lst_b);
 int		ft_tri2(t_list **lst_a, t_list **lst_b, int next);
+int		ft_lower(t_list *lst);
+void	ft_special(t_list **lst_a, t_list **lst_b);
 
 #endif

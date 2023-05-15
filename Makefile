@@ -47,7 +47,6 @@ SRCS    =	ft_invert_first.c \
 				printf/ft_printf.c \
 				printf/ft_utils.c \
 				ft_split.c \
-				ft_end.c \
 				main.c
 OBJS    = ${SRCS:.c=.o}
 INCS    = includes

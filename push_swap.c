@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hugo <hugo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 10:12:32 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/12 12:46:42 by hugo             ###   ########.fr       */
+/*   Updated: 2023/05/15 18:51:15 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,6 @@ int	ft_lstsize2(t_list *lst)
 		i++;
 	}
 	return (i);
-}
-
-int	ft_lower(t_list *lst)
-{
-	int	previous;
-
-	previous = ft_higher(lst, 0);
-	while (lst->content != 0)
-	{
-		if (lst->content < previous)
-			previous = lst->content;
-		lst = lst->next;
-	}
-	return (previous);
-}
-
-int	ft_middle2(t_list *lst)
-{
-	int	middle;
-	int	lower;
-	int	high;
-
-	lower = ft_lower(lst);
-	high = ft_higher(lst, 0);
-	middle = lower + ((high - lower) / 2);
-	return (middle);
 }
 
 void	ft_suite2(t_list **lst_a, t_list **lst_b)
@@ -105,8 +79,6 @@ int	ft_tri2(t_list **lst_a, t_list **lst_b, int next)
 		if ((*lst_a)->content == 0)
 			end = 0;
 	}
-	if ((*lst_a)->partition == 0)
-		ft_end(lst_a, lst_b, next);
 	return (next);
 }
 
@@ -118,8 +90,8 @@ void	ft_last_part(t_list **lst_a, t_list **lst_b, int last)
 
 	part = 0;
 	i[0] = 0;
-	middle = ft_middle2(*lst_a);
-	i[1] = ft_lstsize2(*lst_a);
+	middle = ft_middle(*lst_a);
+	i[1] = ft_lstsize(*lst_a);
 	while (i[0] < i[1])
 	{
 		(*lst_a)->partition = part;
