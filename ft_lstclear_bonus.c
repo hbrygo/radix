@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 11:12:02 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/04/04 14:40:15 by hubrygo          ###   ########.fr       */
+/*   Created: 2023/04/10 17:26:08 by hubrygo           #+#    #+#             */
+/*   Updated: 2023/05/18 13:28:09 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t	i;
+	t_list	*temp;
 
-	i = 0;
-	if (!s || fd == -1)
+	if (!lst || !del)
 		return ;
-	while (s[i])
+	while (*lst)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		temp = *lst;
+		*lst = (*lst)->next;
+		del(temp->content);
+		free(temp);
 	}
-	write(fd, "\n", 1);
 	return ;
 }
+
+//Fonction qui supprime tout une liste chainee

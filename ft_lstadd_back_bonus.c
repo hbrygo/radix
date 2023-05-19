@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 16:45:06 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/04/13 14:17:58 by hubrygo          ###   ########.fr       */
+/*   Created: 2023/04/10 17:08:48 by hubrygo           #+#    #+#             */
+/*   Updated: 2023/05/18 13:28:00 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!new)
-		return ;
-	if (lst)
-		new->next = *lst;
-	*lst = new;
-}
+	t_list	*temp;
 
-//Fonction qui ajoute new au debut de lst
+	temp = *lst;
+	if (!lst)
+		return ;
+	if (!(*lst))
+	{
+		*lst = new;
+		return ;
+	}
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
+}

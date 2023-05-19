@@ -6,13 +6,13 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:06:27 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/15 16:50:44 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/05/19 12:08:59 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_in_lst(int *tab, int size)
+t_list	*ft_in_lst(long int *tab, int size)
 {
 	int		i;
 	t_list	*lst;
@@ -28,16 +28,17 @@ t_list	*ft_in_lst(int *tab, int size)
 	return (lst);
 }
 
-int	*ft_tri_tab(int	*tab, int size)
+long int	*ft_tri_tab(long int *tab, int size)
 {
-	int	i;
-	int	*new_tab;
-	int	j;
-	int	higher;
+	int			i;
+	long int	*new_tab;
+	int			j;
+	int			higher;
 
 	j = 0;
-	higher = 0;
-	new_tab = malloc(sizeof(int) * size);
+	new_tab = malloc(sizeof(long int) * size);
+	if (!new_tab)
+		return (0);
 	while (j < size)
 	{
 		i = 0;
@@ -54,53 +55,41 @@ int	*ft_tri_tab(int	*tab, int size)
 	return (new_tab);
 }
 
-t_list	*ft_num(t_list *lst)
+void	*ft_num(t_list *lst)
 {
-	int		i;
-	t_list	*return_lst;
-	int		*tab;
-	int		size;
+	int			i;
+	t_list		*return_lst;
+	long int	*tab;
+	int			size;
 
 	i = 0;
 	size = ft_lstsize(lst);
-	tab = malloc(sizeof(int) * size);
+	tab = malloc(sizeof(long int) * size);
+	if (!tab)
+		return (0);
 	while (i < size)
 	{
 		tab[i] = lst->content;
 		i++;
 		lst = lst->next;
 	}
+	if (ft_check(tab, size) == 0)
+		return (ft_error());
 	tab = ft_tri_tab(tab, size);
 	return_lst = ft_in_lst(tab, size);
 	return (return_lst);
 }
-
-void	ft_display(t_list *lst)
-{
-	ft_printf("\n");
-	while (lst)
-	{
-		ft_printf("\ncontent: %d,", lst->content);
-		ft_printf("partition: %d ", lst->partition);
-		lst = lst->next;
-	}
-	ft_printf("\n");
-}
-
-t_list	*ft_set_lst(int argc, char **argv)
+void	*ft_set_lst(int argc, char **argv)
 {
 	int		i;
 	t_list	*lst;
 	t_list	*temp;
 
+	lst = NULL;
 	if (argc == 1)
 		return (NULL);
 	if (argc == 2)
-	{
-		lst = NULL;
-		lst = ft_lstsplit(argv[1]);
-		return (lst);
-	}
+		return (ft_lstsplit(argv[1]));
 	else
 		lst = ft_lstnew(ft_atoi(argv[1]));
 	i = 1;

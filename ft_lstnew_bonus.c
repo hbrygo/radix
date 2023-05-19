@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 16:57:45 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/04/13 14:18:18 by hubrygo          ###   ########.fr       */
+/*   Created: 2023/04/10 16:38:04 by hubrygo           #+#    #+#             */
+/*   Updated: 2023/05/19 12:08:13 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstnew(long int content)
 {
-	int	i;
+	t_list	*new;
 
-	if (!lst)
-		return (0);
-	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }
 
-//Fonction qui renvoie le nombre de noeud qu'il y a dans une list
+//Fonction qui cree un nouveau noeud a une list en
+//mettant la valeur content et NULL a next

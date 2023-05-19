@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 11:11:38 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/04/11 15:04:13 by hubrygo          ###   ########.fr       */
+/*   Created: 2023/04/10 16:45:06 by hubrygo           #+#    #+#             */
+/*   Updated: 2023/05/18 13:27:58 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t			i;
-	unsigned char	*str;
-
-	i = -1;
-	str = (unsigned char *)s;
-	while (++i < n)
-		if (str[i] == (unsigned char)c)
-			return ((void *)(str + i));
-	return (0);
+	if (!new)
+		return ;
+	if (lst)
+		new->next = *lst;
+	*lst = new;
 }
 
-//Fonction qui renvoie la 1ere occurence de 'C' sans 's' sur 'n' charactere
+//Fonction qui ajoute new au debut de lst

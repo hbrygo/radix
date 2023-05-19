@@ -6,13 +6,13 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:03:45 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/15 18:31:24 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/05/19 08:43:11 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_ra_without(t_list **lst)
+void	ft_ra_without(t_list **lst)
 {
 	t_list	*temp;
 	t_list	*temp2;
@@ -26,7 +26,7 @@ static void	ft_ra_without(t_list **lst)
 	temp2->next = temp;
 }
 
-static void	ft_rb_without(t_list **lst)
+void	ft_rb_without(t_list **lst)
 {
 	t_list	*temp;
 	t_list	*temp2;

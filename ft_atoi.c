@@ -6,11 +6,11 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:27:21 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/08 13:32:33 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/05/19 12:04:47 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static int	skip(char *str)
 {
@@ -22,12 +22,12 @@ static int	skip(char *str)
 		i++;
 	return (i);
 }
-
-int	ft_atoi(const char *str)
+#include <stdio.h>
+long int	ft_atoi(const char *str)
 {
 	long int	result;
 	long int	last;
-	int			sign;
+	long int	sign;
 
 	result = 0;
 	last = 0;
@@ -42,10 +42,6 @@ int	ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		result = result * 10 + *str - '0';
-		if (last > result && sign > 0)
-			return (-1);
-		else if (last > result && sign < 0)
-			return (0);
 		str++;
 		last = result;
 	}

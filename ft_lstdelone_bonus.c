@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 11:11:49 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/04/11 15:05:29 by hubrygo          ###   ########.fr       */
+/*   Created: 2023/04/10 17:13:06 by hubrygo           #+#    #+#             */
+/*   Updated: 2023/05/18 13:28:07 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	size_t	i;
-	char	*str;
-	char	*dest;
-
-	i = 0;
-	dest = dst;
-	str = (char *)src;
-	if (!dest && !src)
-		return (NULL);
-	while (i < n)
-	{
-		dest[i] = str[i];
-		i++;
-	}
-	return (dest);
+	if (!del)
+		return ;
+	if (lst->content)
+		del(lst->content);
+	free(lst);
 }
 
-//Fonction qui copy les n premier characteres de src dans dst
+//Fonction qui applique la fonction del recu en 
+//argument sur le noeud ou se trouve la list

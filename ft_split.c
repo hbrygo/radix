@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:20:59 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/08 19:07:20 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/05/19 14:21:10 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,15 @@ void	*ft_lstsplit(char *str)
 		}
 	}
 	return (lst);
+}
+
+void	ft_display(t_list *lst)
+{
+	ft_printf("\n");
+	while (lst)
+	{
+		ft_printf("\ncontent: %d,", lst->content);
+		lst = lst->next;
+	}
+	ft_printf("\n");
 }
