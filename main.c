@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 11:07:54 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/19 13:17:58 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/05/20 11:46:55 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,25 @@ int	main(int argc, char **argv)
 {
 	t_list	*lst_a;
 	t_list	*lst_b;
-	int		part;
-	int		next;
+	int		check;
 
+	check = 0;
 	if (argc == 1)
 		return (0);
 	lst_b = NULL;
-	part = 0;
-	next = 0;
 	lst_a = ft_set_lst(argc, argv);
 	if (lst_a == NULL)
 		return (0);
 	if (ft_issort(lst_a) == 1)
+		check = 1;
+	else if (ft_special(&lst_a, &lst_b) == 1)
+		check = 1;
+	if (check == 1)
+	{
+		ft_lstclear(lst_a);
 		return (0);
-	if (ft_special(&lst_a, &lst_b) == 1)
-		return (0);
+	}
 	ft_radix(&lst_a, &lst_b);
-	system("leaks push_swap");
-	// ft_display(lst_a);
+	ft_lstclear(lst_a);
+	return (0);
 }

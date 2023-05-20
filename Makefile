@@ -14,13 +14,14 @@ SRCS    =	ft_invert_first.c \
 				printf/ft_utils.c \
 				ft_split.c \
 				ft_small_sort.c \
+				ft_lstclear_bonus.c \
 				main.c
 OBJS    = ${SRCS:.c=.o}
 INCS    = includes
 NAME    = push_swap
 CC        = gcc
 RM        = rm -rf
-CFLAGS    = -Wall -Wextra -Werror
+CFLAGS    = -Wall -Wextra -Werror# -fsanitize=address -g
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCS}

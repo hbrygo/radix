@@ -6,13 +6,13 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:06:31 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/19 12:13:49 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/05/20 11:44:31 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*ft_error()
+void	*ft_error(void)
 {
 	write(2, "Error", 5);
 	return (0);
@@ -95,13 +95,13 @@ int	ft_issort(t_list *lst)
 
 	size = ft_lstsize(lst);
 	next = 0;
-	while (lst)
+	while (lst->next)
 	{
-		if (lst->content == next)
+		if (lst->content < lst->next->content)
 			next++;
 		lst = lst->next;
 	}
-	if (next == size)
+	if (next == size - 1)
 		return (1);
 	return (0);
 }
