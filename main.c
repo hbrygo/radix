@@ -6,13 +6,13 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 11:07:54 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/20 11:46:55 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/05/21 11:20:39 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_bits(int size)
+static int	ft_bits(int size)
 {
 	int	bits;
 
@@ -25,7 +25,7 @@ int	ft_bits(int size)
 	return (bits);
 }
 
-void	ft_radix(t_list **list_a, t_list **list_b)
+static void	ft_radix(t_list **list_a, t_list **list_b)
 {
 	t_list	*temp;
 	int		bits;

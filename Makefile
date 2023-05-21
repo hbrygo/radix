@@ -12,7 +12,6 @@ SRCS    =	ft_invert_first.c \
 				ft_lstsize_bonus.c \
 				printf/ft_printf.c \
 				printf/ft_utils.c \
-				ft_split.c \
 				ft_small_sort.c \
 				ft_lstclear_bonus.c \
 				main.c

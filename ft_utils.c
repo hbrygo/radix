@@ -6,7 +6,7 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 10:06:31 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/20 11:44:31 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/05/21 11:23:19 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,33 +40,15 @@ int	ft_check(long int *tab, int size)
 	return (1);
 }
 
-int	ft_simulation(t_list *lst, int num)
+void	ft_display(t_list *lst)
 {
-	int	i;
-	int	j;
-	int	temp;
-
-	i = 0;
-	j = 0;
-	while (lst->content != num)
+	ft_printf("\n");
+	while (lst)
 	{
-		ft_ra_without(&lst);
-		i++;
+		ft_printf("\ncontent: %d,", lst->content);
+		lst = lst->next;
 	}
-	temp = i + 1;
-	while (--temp > 0)
-		ft_rra_without(&lst);
-	while (lst->content != num)
-	{
-		ft_rra_without(&lst);
-		j++;
-	}
-	temp = j + 1;
-	while (--temp > 0)
-		ft_ra_without(&lst);
-	if (i < j)
-		return (1);
-	return (0);
+	ft_printf("\n");
 }
 
 int	ft_special(t_list **lst_a, t_list **lst_b)

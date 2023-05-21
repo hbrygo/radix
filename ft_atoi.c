@@ -6,13 +6,13 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:27:21 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/20 11:35:04 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/05/21 11:19:21 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlen(char *str)
+static size_t	ft_strlen(char *str)
 {
 	size_t	i;
 

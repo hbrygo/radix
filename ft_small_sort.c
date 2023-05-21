@@ -6,11 +6,40 @@
 /*   By: hubrygo <hubrygo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 08:33:01 by hubrygo           #+#    #+#             */
-/*   Updated: 2023/05/19 10:22:37 by hubrygo          ###   ########.fr       */
+/*   Updated: 2023/05/21 11:22:46 by hubrygo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	ft_simulation(t_list *lst, int num)
+{
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	j = 0;
+	while (lst->content != num)
+	{
+		ft_ra_without(&lst);
+		i++;
+	}
+	temp = i + 1;
+	while (--temp > 0)
+		ft_rra_without(&lst);
+	while (lst->content != num)
+	{
+		ft_rra_without(&lst);
+		j++;
+	}
+	temp = j + 1;
+	while (--temp > 0)
+		ft_ra_without(&lst);
+	if (i < j)
+		return (1);
+	return (0);
+}
 
 int	ft_threesort(t_list **lst_a)
 {
